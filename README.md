@@ -1,5 +1,3 @@
-# Chinese-Monologue-Practice
-Hosting a wabpage for my monologue practice
 <!DOCTYPE html>
 <html lang="en" class="h-full">
 <head>
