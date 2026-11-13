@@ -55,7 +55,7 @@
             background: #475569;
         }
         .active-card {
-            box-shadow: 0 0 0 2px #22c55e, 0 10px 25px -5px rgba(34, 197, 94, 0.2);
+            box-shadow: 0 0 0 2px #10b981, 0 10px 25px -5px rgba(16, 185, 129, 0.25);
             background-color: #1e293b;
         }
     </style>
@@ -71,8 +71,8 @@
                 </div>
                 <div>
                     <h1 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
-                        HKUST Chinese Monologue Trainer
-                        <span class="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-brand-500/20 text-brand-400 border border-brand-500/30">Speech Prep</span>
+                        Mandarin Monologue Studio
+                        <span class="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">HKUST Speech Prep</span>
                     </h1>
                     <p class="text-xs text-slate-400">Interactive Web Speech Audio TTS & Practice Guide</p>
                 </div>
@@ -110,7 +110,7 @@
                         <span id="statusDot" class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
                         <span id="statusText" class="font-medium">Ready</span>
                     </span>
-                    <span id="sentenceCounter" class="text-slate-400 font-mono">1 / 6</span>
+                    <span id="sentenceCounter" class="text-slate-400 font-mono">01 / 07</span>
                 </div>
 
                 <!-- Main Playback Control Cluster -->
@@ -142,7 +142,7 @@
                         </label>
                         <span id="rateVal" class="font-mono text-brand-400 font-bold bg-brand-500/10 px-2 py-0.5 rounded border border-brand-500/20">1.0x</span>
                     </div>
-                    <input type="range" id="rateSlider" min="0.4" max="1.5" step="0.05" value="1.0" class="w-full accent-brand-500 h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer">
+                    <input type="range" id="rateSlider" min="0.5" max="1.5" step="0.05" value="1.0" class="w-full accent-emerald-500 h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer">
                     
                     <!-- Speed Presets -->
                     <div class="grid grid-cols-4 gap-1.5 pt-1">
@@ -225,24 +225,44 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
+
+            <!-- Modal Display Toggles -->
+            <div class="flex flex-wrap items-center gap-4 bg-slate-950 px-4 py-2.5 rounded-xl border border-slate-800 text-xs">
+                <label class="flex items-center gap-2 text-slate-300 cursor-pointer">
+                    <input type="checkbox" id="modalToggleHanzi" checked class="accent-emerald-500 rounded">
+                    <span>Hanzi</span>
+                </label>
+                <label class="flex items-center gap-2 text-slate-300 cursor-pointer">
+                    <input type="checkbox" id="modalTogglePinyin" checked class="accent-emerald-500 rounded">
+                    <span>Pinyin</span>
+                </label>
+                <label class="flex items-center gap-2 text-slate-300 cursor-pointer">
+                    <input type="checkbox" id="modalToggleEnglish" checked class="accent-emerald-500 rounded">
+                    <span>English</span>
+                </label>
+            </div>
             
             <div class="space-y-4">
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-brand-400 mb-1">Chinese Characters</h4>
+                <div id="modalHanziSection">
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-1">Chinese Characters</h4>
                     <p id="modalHanzi" class="text-lg leading-relaxed text-slate-100 chinese-text bg-slate-950 p-4 rounded-xl border border-slate-800"></p>
                 </div>
-                <div>
+                <div id="modalPinyinSection">
                     <h4 class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-1">Pinyin</h4>
                     <p id="modalPinyin" class="text-xs font-mono leading-relaxed text-emerald-300 bg-slate-950 p-4 rounded-xl border border-slate-800"></p>
                 </div>
-                <div>
+                <div id="modalEnglishSection">
                     <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">English Translation</h4>
                     <p id="modalEnglish" class="text-xs leading-relaxed text-slate-300 italic bg-slate-950 p-4 rounded-xl border border-slate-800"></p>
                 </div>
             </div>
 
-            <div class="pt-3 border-t border-slate-800 flex justify-end gap-3">
-                <button id="modalPlayBtn" class="bg-brand-600 hover:bg-brand-500 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-lg shadow-brand-500/20 active:scale-95 transition">
+            <div class="pt-3 border-t border-slate-800 flex flex-wrap items-center justify-end gap-3">
+                <button id="copyScriptBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 border border-slate-700 active:scale-95 transition">
+                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    <span id="copyScriptLabel">Copy Text</span>
+                </button>
+                <button id="modalPlayBtn" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 transition">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     <span>Play Monologue From Start</span>
                 </button>
@@ -252,7 +272,7 @@
 
     <!-- Footer -->
     <footer class="bg-slate-900/60 border-t border-slate-800/80 py-4 text-center text-xs text-slate-500">
-        <p>HKUST Chinese Speech Monologue Companion • Audio powered by Browser Web Speech API</p>
+        <p>Mandarin Monologue Studio • Audio powered by Browser Web Speech API</p>
     </footer>
 
     <!-- Script logic -->
@@ -264,12 +284,12 @@
                 pinyin: "Nǐ hǎo! Wǒ jiào Fionn, wǒ de zhōngwén míngzi shì Fēilóng.",
                 english: "Hello! I am called Fionn, my Chinese name is Fei Long.",
                 words: [
-                    { hanzi: "你好", pinyin: "nǐ hǎo", en: "hello" },
-                    { hanzi: "我", pinyin: "wǒ", en: "I / me" },
-                    { hanzi: "叫", pinyin: "jiào", en: "called" },
+                    { hanzi: "你好", pinyin: "Nǐ hǎo", en: "Hello" },
+                    { hanzi: "我", pinyin: "Wǒ", en: "I" },
+                    { hanzi: "叫", pinyin: "jiào", en: "to be called" },
                     { hanzi: "Fionn", pinyin: "Fionn", en: "Fionn" },
                     { hanzi: "我的", pinyin: "wǒ de", en: "my" },
-                    { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese language" },
+                    { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese" },
                     { hanzi: "名字", pinyin: "míngzi", en: "name" },
                     { hanzi: "是", pinyin: "shì", en: "is" },
                     { hanzi: "飞龙", pinyin: "Fēilóng", en: "Fei Long" }
@@ -281,34 +301,35 @@
                 pinyin: "Wǒ shì Yīngguórén, dànshì wǒ zài Xiānggǎng Kējì Dàxué xuéxí.",
                 english: "I am English, but I study at HKUST.",
                 words: [
-                    { hanzi: "我", pinyin: "wǒ", en: "I" },
+                    { hanzi: "我", pinyin: "Wǒ", en: "I" },
                     { hanzi: "是", pinyin: "shì", en: "am" },
                     { hanzi: "英国人", pinyin: "Yīngguórén", en: "English person" },
                     { hanzi: "但是", pinyin: "dànshì", en: "but" },
                     { hanzi: "我", pinyin: "wǒ", en: "I" },
                     { hanzi: "在", pinyin: "zài", en: "at" },
                     { hanzi: "香港科技大学", pinyin: "Xiānggǎng Kējì Dàxué", en: "HKUST" },
-                    { hanzi: "学习", pinyin: "xuéxí", en: "to study" }
+                    { hanzi: "学习", pinyin: "xuéxí", en: "study" }
                 ]
             },
             {
                 id: 2,
                 hanzi: "因为我才学了两个月的中文，所以我说中文说得还不太好。",
                 pinyin: "Yīnwèi wǒ cái xué le liǎng gè yuè de zhōngwén, suǒyǐ wǒ shuō zhōngwén shuō de hái bù tài hǎo.",
-                english: "Because I have only studied Chinese for 2 months, I speak Chinese not very well.",
+                english: "Because I have only studied Chinese for two months, I speak Chinese not very well.",
                 words: [
-                    { hanzi: "因为", pinyin: "yīnwèi", en: "because" },
+                    { hanzi: "因为", pinyin: "Yīnwèi", en: "because" },
                     { hanzi: "我", pinyin: "wǒ", en: "I" },
                     { hanzi: "才", pinyin: "cái", en: "only" },
                     { hanzi: "学了", pinyin: "xué le", en: "studied" },
-                    { hanzi: "两个月", pinyin: "liǎng gè yuè", en: "2 months" },
-                    { hanzi: "的", pinyin: "de", en: "of" },
+                    { hanzi: "两个月", pinyin: "liǎng gè yuè", en: "two months" },
+                    { hanzi: "的", pinyin: "de", en: "particle" },
                     { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese" },
-                    { hanzi: "所以", pinyin: "suǒyǐ", en: "so / therefore" },
+                    { hanzi: "所以", pinyin: "suǒyǐ", en: "so/therefore" },
                     { hanzi: "我", pinyin: "wǒ", en: "I" },
                     { hanzi: "说中文", pinyin: "shuō zhōngwén", en: "speak Chinese" },
-                    { hanzi: "说得", pinyin: "shuō de", en: "speak [degree particle]" },
-                    { hanzi: "还不太好", pinyin: "hái bù tài hǎo", en: "still not very well" }
+                    { hanzi: "说得", pinyin: "shuō de", en: "speak (degree)" },
+                    { hanzi: "还", pinyin: "hái", en: "still" },
+                    { hanzi: "不太好", pinyin: "bù tài hǎo", en: "not very well" }
                 ]
             },
             {
@@ -317,13 +338,17 @@
                 pinyin: "Wǒ juéde xué zhōngwén hěn nán, zuì nán de shì xiě hànzì.",
                 english: "I think learning Chinese is very hard; the hardest part is writing Chinese characters.",
                 words: [
-                    { hanzi: "我", pinyin: "wǒ", en: "I" },
-                    { hanzi: "觉得", pinyin: "juéde", en: "feel / think" },
-                    { hanzi: "学中文", pinyin: "xué zhōngwén", en: "learn Chinese" },
-                    { hanzi: "很难", pinyin: "hěn nán", en: "very hard" },
-                    { hanzi: "最难的", pinyin: "zuì nán de", en: "hardest part" },
+                    { hanzi: "我", pinyin: "Wǒ", en: "I" },
+                    { hanzi: "觉得", pinyin: "juéde", en: "think/feel" },
+                    { hanzi: "学", pinyin: "xué", en: "learning" },
+                    { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese" },
+                    { hanzi: "很", pinyin: "hěn", en: "very" },
+                    { hanzi: "难", pinyin: "nán", en: "hard" },
+                    { hanzi: "最", pinyin: "zuì", en: "most" },
+                    { hanzi: "难的", pinyin: "nán de", en: "hard part" },
                     { hanzi: "是", pinyin: "shì", en: "is" },
-                    { hanzi: "写汉字", pinyin: "xiě hànzì", en: "write Chinese characters" }
+                    { hanzi: "写", pinyin: "xiě", en: "writing" },
+                    { hanzi: "汉字", pinyin: "hànzì", en: "Chinese characters" }
                 ]
             },
             {
@@ -332,7 +357,7 @@
                 pinyin: "Chúle zhōngwén yǐwài, wǒ hái xué wùlǐ.",
                 english: "Besides Chinese, I also study physics.",
                 words: [
-                    { hanzi: "除了...以外", pinyin: "chúle... yǐwài", en: "besides / in addition to" },
+                    { hanzi: "除了...以外", pinyin: "Chúle... yǐwài", en: "besides/except" },
                     { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese" },
                     { hanzi: "我", pinyin: "wǒ", en: "I" },
                     { hanzi: "还", pinyin: "hái", en: "also" },
@@ -342,24 +367,51 @@
             },
             {
                 id: 5,
-                hanzi: "每天我八点醒来以后，我一边吃早饭，一边练习中文。然后我从学生宿舍步行到大学。",
-                pinyin: "Měitiān wǒ bā diǎn xǐng lái yǐhòu, wǒ yībiān chī zǎofàn, yībiān liànxí zhōngwén. Ránhòu wǒ cóng xuésheng sùshè bùxíng dào dàxué.",
-                english: "Every day after I wake up at 8 o'clock, I practice Chinese while eating breakfast. Then I walk from the student dormitories to the university.",
+                hanzi: "每天我八点醒来以后，我一边吃早饭，一边练习中文，以后我从学生宿舍步行到大学。",
+                pinyin: "Měitiān wǒ bā diǎn xǐng lái yǐhòu, wǒ yībiān chī zǎofàn, yībiān liànxí zhōngwén, yǐhòu wǒ cóng xuésheng sùshè bùxíng dào dàxué.",
+                english: "Every day after I wake up at 8 am, I practice Chinese while eating breakfast, and then I walk from the student dormitories to university.",
                 words: [
-                    { hanzi: "每天", pinyin: "měitiān", en: "every day" },
+                    { hanzi: "每天", pinyin: "Měitiān", en: "every day" },
                     { hanzi: "我", pinyin: "wǒ", en: "I" },
                     { hanzi: "八点", pinyin: "bā diǎn", en: "8 o'clock" },
                     { hanzi: "醒来", pinyin: "xǐng lái", en: "wake up" },
                     { hanzi: "以后", pinyin: "yǐhòu", en: "after" },
-                    { hanzi: "一边...一边...", pinyin: "yībiān... yībiān...", en: "while... simultaneously..." },
+                    { hanzi: "一边...一边...", pinyin: "yībiān... yībiān...", en: "while doing A, B" },
                     { hanzi: "吃早饭", pinyin: "chī zǎofàn", en: "eat breakfast" },
-                    { hanzi: "练习中文", pinyin: "liànxí zhōngwén", en: "practice Chinese" },
-                    { hanzi: "然后", pinyin: "ránhòu", en: "then / afterwards" },
-                    { hanzi: "我", pinyin: "wǒ", en: "I" },
-                    { hanzi: "从...到...", pinyin: "cóng... dào...", en: "from... to..." },
-                    { hanzi: "学生宿舍", pinyin: "xuésheng sùshè", en: "student dormitory" },
-                    { hanzi: "步行", pinyin: "bùxíng", en: "walk / on foot" },
+                    { hanzi: "练习", pinyin: "liànxí", en: "practice" },
+                    { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese" },
+                    { hanzi: "以后", pinyin: "yǐhòu", en: "then/afterwards" },
+                    { hanzi: "从", pinyin: "cóng", en: "from" },
+                    { hanzi: "学生宿舍", pinyin: "xuésheng sùshè", en: "student dorms" },
+                    { hanzi: "步行", pinyin: "bùxíng", en: "walk/on foot" },
+                    { hanzi: "到", pinyin: "dào", en: "to" },
                     { hanzi: "大学", pinyin: "dàxué", en: "university" }
+                ]
+            },
+            {
+                id: 6,
+                hanzi: "我喜欢住在香港，因为这儿有很多商店。星期五我和朋友见面，买了这件衬衫。",
+                pinyin: "Wǒ xǐhuān zhù zài Xiānggǎng, yīnwèi zhèr yǒu hěn duō shāngdiàn. Xīngqīwǔ wǒ hé péngyǒu jiànmiàn, mǎi le zhè jiàn chènshān.",
+                english: "I like living in Hong Kong because there are many shops here. On Friday I met up with a friend and bought this shirt.",
+                words: [
+                    { hanzi: "我", pinyin: "Wǒ", en: "I" },
+                    { hanzi: "喜欢", pinyin: "xǐhuān", en: "to like" },
+                    { hanzi: "住在", pinyin: "zhù zài", en: "to live in" },
+                    { hanzi: "香港", pinyin: "Xiānggǎng", en: "Hong Kong" },
+                    { hanzi: "因为", pinyin: "yīnwèi", en: "because" },
+                    { hanzi: "这儿", pinyin: "zhèr", en: "here" },
+                    { hanzi: "有", pinyin: "yǒu", en: "there are" },
+                    { hanzi: "很多", pinyin: "hěn duō", en: "many / lots of" },
+                    { hanzi: "商店", pinyin: "shāngdiàn", en: "shops" },
+                    { hanzi: "星期五", pinyin: "Xīngqīwǔ", en: "Friday" },
+                    { hanzi: "我", pinyin: "wǒ", en: "I" },
+                    { hanzi: "和", pinyin: "hé", en: "with" },
+                    { hanzi: "朋友", pinyin: "péngyǒu", en: "friend" },
+                    { hanzi: "见面", pinyin: "jiànmiàn", en: "to meet up" },
+                    { hanzi: "买了", pinyin: "mǎi le", en: "bought" },
+                    { hanzi: "这", pinyin: "zhè", en: "this" },
+                    { hanzi: "件", pinyin: "jiàn", en: "measure word (shirt)" },
+                    { hanzi: "衬衫", pinyin: "chènshān", en: "shirt" }
                 ]
             }
         ];
@@ -401,6 +453,14 @@
         const modalPinyin = document.getElementById('modalPinyin');
         const modalEnglish = document.getElementById('modalEnglish');
         const modalPlayBtn = document.getElementById('modalPlayBtn');
+        const copyScriptBtn = document.getElementById('copyScriptBtn');
+        const copyScriptLabel = document.getElementById('copyScriptLabel');
+        const modalToggleHanzi = document.getElementById('modalToggleHanzi');
+        const modalTogglePinyin = document.getElementById('modalTogglePinyin');
+        const modalToggleEnglish = document.getElementById('modalToggleEnglish');
+        const modalHanziSection = document.getElementById('modalHanziSection');
+        const modalPinyinSection = document.getElementById('modalPinyinSection');
+        const modalEnglishSection = document.getElementById('modalEnglishSection');
 
         // Initialize Speech Voices
         function populateVoiceList() {
@@ -463,10 +523,10 @@
 
                 const headerHtml = `
                     <div class="flex items-center justify-between mb-2">
-                        <span class="text-[11px] font-mono font-medium text-slate-400 bg-slate-950 px-2.5 py-0.5 rounded-md border border-slate-800">
-                            Sentence ${index + 1} of ${MONOLOGUE_DATA.length}
+                        <span class="text-[11px] font-mono font-medium text-emerald-400 bg-slate-950 px-2.5 py-0.5 rounded-md border border-slate-800">
+                            ${String(index + 1).padStart(2, '0')} / ${String(MONOLOGUE_DATA.length).padStart(2, '0')}
                         </span>
-                        <button onclick="event.stopPropagation(); playSingleSentence(${index})" class="flex items-center gap-1.5 text-xs text-brand-400 hover:text-brand-300 bg-brand-500/10 hover:bg-brand-500/20 px-3 py-1 rounded-full border border-brand-500/20 transition">
+                        <button onclick="event.stopPropagation(); playSingleSentence(${index})" class="flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 px-3 py-1 rounded-full border border-emerald-500/20 transition">
                             <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             <span>Listen</span>
                         </button>
@@ -530,7 +590,9 @@
         }
 
         function updateSentenceCounter() {
-            sentenceCounter.textContent = `${currentSentenceIdx + 1} / ${MONOLOGUE_DATA.length}`;
+            const cur = String(currentSentenceIdx + 1).padStart(2, '0');
+            const total = String(MONOLOGUE_DATA.length).padStart(2, '0');
+            sentenceCounter.textContent = `${cur} / ${total}`;
         }
 
         // Speech Engine
@@ -546,8 +608,10 @@
 
             if (currentVoice) {
                 utterance.voice = currentVoice;
+                utterance.lang = currentVoice.lang || 'zh-CN';
+            } else {
+                utterance.lang = 'zh-CN';
             }
-            utterance.lang = 'zh-CN';
 
             utterance.onstart = () => {
                 isPlaying = true;
@@ -684,6 +748,43 @@
                 fullScriptModal.classList.add('hidden');
                 currentSentenceIdx = 0;
                 speakCurrentSentence();
+            });
+
+            modalToggleHanzi.addEventListener('change', (e) => {
+                modalHanziSection.classList.toggle('hidden', !e.target.checked);
+            });
+
+            modalTogglePinyin.addEventListener('change', (e) => {
+                modalPinyinSection.classList.toggle('hidden', !e.target.checked);
+            });
+
+            modalToggleEnglish.addEventListener('change', (e) => {
+                modalEnglishSection.classList.toggle('hidden', !e.target.checked);
+            });
+
+            copyScriptBtn.addEventListener('click', () => {
+                const parts = [];
+                if (modalToggleHanzi.checked) parts.push(modalHanzi.textContent);
+                if (modalTogglePinyin.checked) parts.push(modalPinyin.textContent);
+                if (modalToggleEnglish.checked) parts.push(modalEnglish.textContent);
+                const textToCopy = parts.join('\n\n');
+
+                const tempArea = document.createElement('textarea');
+                tempArea.value = textToCopy;
+                tempArea.style.position = 'fixed';
+                tempArea.style.opacity = '0';
+                document.body.appendChild(tempArea);
+                tempArea.select();
+                try {
+                    document.execCommand('copy');
+                    copyScriptLabel.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyScriptLabel.textContent = 'Copy Text';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Copy failed:', err);
+                }
+                document.body.removeChild(tempArea);
             });
         }
 
