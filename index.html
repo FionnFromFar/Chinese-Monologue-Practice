@@ -60,7 +60,7 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-full flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+<body class="bg-[#0f172a] text-slate-100 min-h-full flex flex-col justify-between selection:bg-brand-500 selection:text-white">
 
     <!-- Header Section -->
     <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-40">
@@ -102,7 +102,7 @@
         <!-- Left Column: Audio Controls & Player Settings -->
         <div class="lg:col-span-5 space-y-4">
             
-            <div class="bg-slate-900/90 rounded-2xl p-5 border border-slate-800 shadow-xl space-y-4 sticky top-20">
+            <div class="bg-[#1e293b]/90 rounded-2xl p-5 border border-slate-800 shadow-xl space-y-4 sticky top-20">
                 
                 <!-- Status Banner -->
                 <div id="statusBadge" class="flex items-center justify-between bg-slate-950 px-3.5 py-2 rounded-xl border border-slate-800 text-xs">
@@ -289,7 +289,7 @@
                     { hanzi: "叫", pinyin: "jiào", en: "to be called" },
                     { hanzi: "Fionn", pinyin: "Fionn", en: "Fionn" },
                     { hanzi: "我的", pinyin: "wǒ de", en: "my" },
-                    { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese language" },
+                    { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese" },
                     { hanzi: "名字", pinyin: "míngzi", en: "name" },
                     { hanzi: "是", pinyin: "shì", en: "to be" },
                     { hanzi: "飞龙", pinyin: "Fēilóng", en: "Fei Long" }
@@ -305,7 +305,8 @@
                     { hanzi: "是", pinyin: "shì", en: "to be" },
                     { hanzi: "英国人", pinyin: "Yīngguórén", en: "English person" },
                     { hanzi: "但是", pinyin: "dànshì", en: "but" },
-                    { hanzi: "在", pinyin: "zài", en: "at / in" },
+                    { hanzi: "我", pinyin: "wǒ", en: "I" },
+                    { hanzi: "在", pinyin: "zài", en: "at" },
                     { hanzi: "香港科技大学", pinyin: "Xiānggǎng Kējì Dàxué", en: "HKUST" },
                     { hanzi: "学习", pinyin: "xuéxí", en: "to study" }
                 ]
@@ -318,17 +319,19 @@
                 words: [
                     { hanzi: "因为", pinyin: "yīnwèi", en: "because" },
                     { hanzi: "我", pinyin: "wǒ", en: "I" },
-                    { hanzi: "才", pinyin: "cái", en: "only / just" },
-                    { hanzi: "学", pinyin: "xué", en: "to study / learn" },
-                    { hanzi: "了", pinyin: "le", en: "completed action marker" },
+                    { hanzi: "才", pinyin: "cái", en: "only" },
+                    { hanzi: "学了", pinyin: "xué le", en: "studied" },
                     { hanzi: "两个月", pinyin: "liǎng gè yuè", en: "two months" },
                     { hanzi: "的", pinyin: "de", en: "particle" },
                     { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese" },
-                    { hanzi: "所以", pinyin: "suǒyǐ", en: "so / therefore" },
-                    { hanzi: "说", pinyin: "shuō", en: "to speak" },
-                    { hanzi: "得", pinyin: "de", en: "complement particle" },
-                    { hanzi: "还", pinyin: "hái", en: "still / fairly" },
-                    { hanzi: "不太好", pinyin: "bù tài hǎo", en: "not very well" }
+                    { hanzi: "所以", pinyin: "suǒyǐ", en: "therefore/so" },
+                    { hanzi: "我", pinyin: "wǒ", en: "I" },
+                    { hanzi: "说", pinyin: "shuō", en: "speak" },
+                    { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese" },
+                    { hanzi: "说得", pinyin: "shuō de", en: "speak [complement]" },
+                    { hanzi: "还", pinyin: "hái", en: "still" },
+                    { hanzi: "不太", pinyin: "bù tài", en: "not too/very" },
+                    { hanzi: "好", pinyin: "hǎo", en: "well" }
                 ]
             },
             {
@@ -338,15 +341,14 @@
                 english: "I think learning Chinese is too hard; the hardest part is writing Chinese characters.",
                 words: [
                     { hanzi: "我", pinyin: "wǒ", en: "I" },
-                    { hanzi: "觉得", pinyin: "juéde", en: "to feel / think" },
-                    { hanzi: "学", pinyin: "xué", en: "to learn" },
+                    { hanzi: "觉得", pinyin: "juéde", en: "feel/think" },
+                    { hanzi: "学", pinyin: "xué", en: "learn/study" },
                     { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese" },
-                    { hanzi: "太……了", pinyin: "tài... le", en: "too / extremely" },
-                    { hanzi: "难", pinyin: "nán", en: "hard / difficult" },
-                    { hanzi: "最", pinyin: "zuì", en: "most / -est" },
-                    { hanzi: "的", pinyin: "de", en: "nominalizer" },
-                    { hanzi: "是", pinyin: "shì", en: "to be" },
-                    { hanzi: "写", pinyin: "xiě", en: "to write" },
+                    { hanzi: "太难了", pinyin: "tài nán le", en: "too hard" },
+                    { hanzi: "最", pinyin: "zuì", en: "most" },
+                    { hanzi: "难的", pinyin: "nán de", en: "hard part" },
+                    { hanzi: "是", pinyin: "shì", en: "is" },
+                    { hanzi: "写", pinyin: "xiě", en: "write" },
                     { hanzi: "汉字", pinyin: "hànzì", en: "Chinese characters" }
                 ]
             },
@@ -354,21 +356,22 @@
                 id: 4,
                 hanzi: "每天早上八点，我先起床，再洗澡，然后我一边吃早饭，一边练习中文。",
                 pinyin: "Měitiān zǎoshang bā diǎn, wǒ xiān qǐchuáng, zài xǐzǎo, ránhòu wǒ yībiān chī zǎofàn, yībiān liànxí zhōngwén.",
-                english: "Every morning at 8 o'clock, I first get up, then take a shower, and after that I practice Chinese while eating breakfast.",
+                english: "Every morning at 8 o'clock, I first get up, then shower, and then I practice Chinese while eating breakfast.",
                 words: [
                     { hanzi: "每天", pinyin: "měitiān", en: "every day" },
                     { hanzi: "早上", pinyin: "zǎoshang", en: "morning" },
                     { hanzi: "八点", pinyin: "bā diǎn", en: "8 o'clock" },
                     { hanzi: "我", pinyin: "wǒ", en: "I" },
                     { hanzi: "先", pinyin: "xiān", en: "first" },
-                    { hanzi: "起床", pinyin: "qǐchuáng", en: "to get up" },
-                    { hanzi: "再", pinyin: "zài", en: "then / next" },
-                    { hanzi: "洗澡", pinyin: "xǐzǎo", en: "to take a shower" },
-                    { hanzi: "然后", pinyin: "ránhòu", en: "after that / then" },
-                    { hanzi: "一边", pinyin: "yībiān", en: "while / simultaneously" },
-                    { hanzi: "吃", pinyin: "chī", en: "to eat" },
-                    { hanzi: "早饭", pinyin: "zǎofàn", en: "breakfast" },
-                    { hanzi: "练习", pinyin: "liànxí", en: "to practice" },
+                    { hanzi: "起床", pinyin: "qǐchuáng", en: "get up" },
+                    { hanzi: "再", pinyin: "zài", en: "then" },
+                    { hanzi: "洗澡", pinyin: "xǐzǎo", en: "shower" },
+                    { hanzi: "然后", pinyin: "ránhòu", en: "afterwards" },
+                    { hanzi: "我", pinyin: "wǒ", en: "I" },
+                    { hanzi: "一边", pinyin: "yībiān", en: "while" },
+                    { hanzi: "吃早饭", pinyin: "chī zǎofàn", en: "eat breakfast" },
+                    { hanzi: "一边", pinyin: "yībiān", en: "while" },
+                    { hanzi: "练习", pinyin: "liànxí", en: "practice" },
                     { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese" }
                 ]
             },
@@ -378,58 +381,59 @@
                 pinyin: "Chúle zhōngwén yǐwài, wǒ hái xué wùlǐ.",
                 english: "Besides Chinese, I also study physics.",
                 words: [
-                    { hanzi: "除了……以外", pinyin: "chúle... yǐwài", en: "besides / in addition to" },
+                    { hanzi: "除了", pinyin: "chúle", en: "besides" },
                     { hanzi: "中文", pinyin: "zhōngwén", en: "Chinese" },
+                    { hanzi: "以外", pinyin: "yǐwài", en: "other than" },
                     { hanzi: "我", pinyin: "wǒ", en: "I" },
-                    { hanzi: "还", pinyin: "hái", en: "also / in addition" },
-                    { hanzi: "学", pinyin: "xué", en: "to study" },
+                    { hanzi: "还", pinyin: "hái", en: "also" },
+                    { hanzi: "学", pinyin: "xué", en: "study" },
                     { hanzi: "物理", pinyin: "wùlǐ", en: "physics" }
                 ]
             },
             {
                 id: 6,
-                hanzi: "我喜欢住在香港，因为这儿跟北京一样，有很多商店。",
-                pinyin: "Wǒ xǐhuān zhù zài Xiānggǎng, yīnwèi zhèr gēn Běijīng yīyàng, yǒu hěn duō shāngdiàn.",
-                english: "I like living in Hong Kong because, just like Beijing, there are many shops here.",
+                hanzi: "我喜欢住在香港，因为这儿跟北京一样，地铁很便宜。",
+                pinyin: "Wǒ xǐhuān zhù zài Xiānggǎng, yīnwèi zhèr gēn Běijīng yīyàng, dìtiě hěn piányi.",
+                english: "I like living in Hong Kong because, just like Beijing, the subway is very cheap.",
                 words: [
                     { hanzi: "我", pinyin: "wǒ", en: "I" },
                     { hanzi: "喜欢", pinyin: "xǐhuān", en: "to like" },
-                    { hanzi: "住在", pinyin: "zhù zài", en: "to live in / at" },
+                    { hanzi: "住", pinyin: "zhù", en: "to live" },
+                    { hanzi: "在", pinyin: "zài", en: "in/at" },
                     { hanzi: "香港", pinyin: "Xiānggǎng", en: "Hong Kong" },
                     { hanzi: "因为", pinyin: "yīnwèi", en: "because" },
                     { hanzi: "这儿", pinyin: "zhèr", en: "here" },
-                    { hanzi: "跟", pinyin: "gēn", en: "with / as" },
+                    { hanzi: "跟", pinyin: "gēn", en: "with/as" },
                     { hanzi: "北京", pinyin: "Běijīng", en: "Beijing" },
-                    { hanzi: "一样", pinyin: "yīyàng", en: "the same" },
-                    { hanzi: "有", pinyin: "yǒu", en: "there are / to have" },
-                    { hanzi: "很多", pinyin: "hěn duō", en: "many / lots of" },
-                    { hanzi: "商店", pinyin: "shāngdiàn", en: "shops / stores" }
+                    { hanzi: "一样", pinyin: "yīyàng", en: "the same/alike" },
+                    { hanzi: "地铁", pinyin: "dìtiě", en: "subway" },
+                    { hanzi: "很", pinyin: "hěn", en: "very" },
+                    { hanzi: "便宜", pinyin: "piányi", en: "cheap" }
                 ]
             },
             {
                 id: 7,
                 hanzi: "上个星期五，我和朋友坐地铁去买东西，我花十块买了这件白色衬衫……非常便宜！",
                 pinyin: "Shàng ge xīngqīwǔ, wǒ hé péngyǒu zuò dìtiě qù mǎi dōngxi, wǒ huā shí kuài mǎi le zhè jiàn báisè chènshān…… fēicháng piányi!",
-                english: "Last Friday, my friend and I took the subway to go shopping; I spent ten kuai to buy this white shirt... extremely cheap!",
+                english: "Last Friday, my friend and I took the subway to go shopping, and I spent 10 kuai to buy this white shirt... super cheap!",
                 words: [
-                    { hanzi: "上个", pinyin: "shàng ge", en: "last / previous" },
+                    { hanzi: "上个", pinyin: "shàng ge", en: "last" },
                     { hanzi: "星期五", pinyin: "xīngqīwǔ", en: "Friday" },
                     { hanzi: "我", pinyin: "wǒ", en: "I" },
-                    { hanzi: "和", pinyin: "hé", en: "and / with" },
+                    { hanzi: "和", pinyin: "hé", en: "and/with" },
                     { hanzi: "朋友", pinyin: "péngyǒu", en: "friend" },
-                    { hanzi: "坐", pinyin: "zuò", en: "to travel by / take" },
-                    { hanzi: "地铁", pinyin: "dìtiě", en: "subway / MTR" },
-                    { hanzi: "去", pinyin: "qù", en: "to go" },
-                    { hanzi: "买东西", pinyin: "mǎi dōngxi", en: "to go shopping" },
-                    { hanzi: "花", pinyin: "huā", en: "to spend money/time" },
-                    { hanzi: "十块", pinyin: "shí kuài", en: "10 kuai / dollars" },
-                    { hanzi: "买", pinyin: "mǎi", en: "to buy" },
-                    { hanzi: "了", pinyin: "le", en: "completed action marker" },
-                    { hanzi: "这", pinyin: "zhè", en: "this" },
-                    { hanzi: "件", pinyin: "jiàn", en: "measure word for tops/shirts" },
+                    { hanzi: "坐", pinyin: "zuò", en: "take/travel by" },
+                    { hanzi: "地铁", pinyin: "dìtiě", en: "subway" },
+                    { hanzi: "去", pinyin: "qù", en: "go" },
+                    { hanzi: "买东西", pinyin: "mǎi dōngxi", en: "go shopping" },
+                    { hanzi: "我", pinyin: "wǒ", en: "I" },
+                    { hanzi: "花", pinyin: "huā", en: "spend" },
+                    { hanzi: "十块", pinyin: "shí kuài", en: "10 kuai" },
+                    { hanzi: "买了", pinyin: "mǎi le", en: "bought" },
+                    { hanzi: "这件", pinyin: "zhè jiàn", en: "this [measure word]" },
                     { hanzi: "白色", pinyin: "báisè", en: "white" },
                     { hanzi: "衬衫", pinyin: "chènshān", en: "shirt" },
-                    { hanzi: "非常", pinyin: "fēicháng", en: "extremely / very" },
+                    { hanzi: "非常", pinyin: "fēicháng", en: "extremely" },
                     { hanzi: "便宜", pinyin: "piányi", en: "cheap" }
                 ]
             },
@@ -439,17 +443,15 @@
                 pinyin: "Mǎi le yǐhòu, wǒmen qù chī le huǒguō, yòu hē le sān píng píjiǔ.",
                 english: "After buying it, we went to eat hotpot, and also drank three bottles of beer.",
                 words: [
-                    { hanzi: "买", pinyin: "mǎi", en: "to buy" },
-                    { hanzi: "了", pinyin: "le", en: "completed action marker" },
+                    { hanzi: "买了", pinyin: "mǎi le", en: "bought" },
                     { hanzi: "以后", pinyin: "yǐhòu", en: "after" },
                     { hanzi: "我们", pinyin: "wǒmen", en: "we" },
-                    { hanzi: "去", pinyin: "qù", en: "to go" },
-                    { hanzi: "吃", pinyin: "chī", en: "to eat" },
+                    { hanzi: "去", pinyin: "qù", en: "go" },
+                    { hanzi: "吃了", pinyin: "chī le", en: "ate" },
                     { hanzi: "火锅", pinyin: "huǒguō", en: "hotpot" },
-                    { hanzi: "又", pinyin: "yòu", en: "and also / in addition" },
-                    { hanzi: "喝", pinyin: "hē", en: "to drink" },
-                    { hanzi: "三", pinyin: "sān", en: "three" },
-                    { hanzi: "瓶", pinyin: "píng", en: "bottle measure word" },
+                    { hanzi: "又", pinyin: "yòu", en: "also/again" },
+                    { hanzi: "喝了", pinyin: "hē le", en: "drank" },
+                    { hanzi: "三瓶", pinyin: "sān píng", en: "three bottles" },
                     { hanzi: "啤酒", pinyin: "píjiǔ", en: "beer" }
                 ]
             },
@@ -460,9 +462,9 @@
                 english: "Very happy to meet you all, thank you!",
                 words: [
                     { hanzi: "很", pinyin: "hěn", en: "very" },
-                    { hanzi: "高兴", pinyin: "gāoxìng", en: "happy / pleased" },
-                    { hanzi: "认识", pinyin: "rènshi", en: "to meet / get to know" },
-                    { hanzi: "你们", pinyin: "nǐmen", en: "you plural" },
+                    { hanzi: "高兴", pinyin: "gāoxìng", en: "happy" },
+                    { hanzi: "认识", pinyin: "rènshi", en: "meet/know" },
+                    { hanzi: "你们", pinyin: "nǐmen", en: "you all" },
                     { hanzi: "谢谢", pinyin: "xièxie", en: "thank you" }
                 ]
             }
@@ -602,7 +604,7 @@
                 const isCardExpanded = showBreakdown || expandedSentences.has(index);
                 const card = document.createElement('div');
                 card.id = `sentence-card-${index}`;
-                card.className = `p-5 rounded-2xl bg-slate-900 border border-slate-800 transition-all duration-300 cursor-pointer hover:border-slate-700 ${
+                card.className = `p-5 rounded-2xl bg-[#1e293b] border border-slate-800 transition-all duration-300 cursor-pointer hover:border-slate-700 ${
                     index === currentSentenceIdx ? 'active-card' : ''
                 }`;
                 card.onclick = () => playSingleSentence(index);
